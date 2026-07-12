@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2d7a4f;
+  --color-primary-dark: #1e5c3a;
+  --color-secondary: #e8f5e9;
+  --font-family-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Add any global base styles here */
+body {
+  font-family: var(--font-family-sans);
+}
+
+/* Style WordPress Pagination Buttons */
+.pagination .page-numbers,
+.pagination .prev,
+.pagination .next {
+  @apply inline-flex items-center justify-center min-w-[40px] h-10 px-3 border-2 border-gray-200 rounded-lg text-gray-700 font-medium transition-all hover:bg-secondary hover:border-primary hover:text-primary;
+}
+
+.pagination .current {
+  @apply bg-primary border-primary text-white;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2d7a4f;
+  --color-primary-dark: #1e5c3a;
+  --color-secondary: #e8f5e9;
+  --font-family-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Utility for Screen Reader Only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
