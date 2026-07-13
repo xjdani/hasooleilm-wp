@@ -68,64 +68,15 @@ function hasooleilm_fallback_menu() {
  */
 
 function hasooleilm_enqueue_scripts() {
-    $style_file = get_template_directory() . '/dist/assets/css/style.css';
+    $style_file = get_template_directory() . '/assets/css/style.css';
     $style_version = file_exists( $style_file ) ? filemtime( $style_file ) : '1.0.0';
     wp_enqueue_style( 
         'hasooleilm-style', 
-        get_template_directory_uri() . '/dist/assets/css/style.css', 
+        get_template_directory_uri() . '/assets/css/style.css', 
         array(), 
         $style_version 
     );
-    
-    wp_enqueue_script( 
-        'hasooleilm-header-js', 
-        get_template_directory_uri() . '/assets/js/header.js', 
-        array(), 
-        '1.0.0', 
-        true 
-    );
-    
-    // Main CSS (CSS variables + global styles)
-    wp_enqueue_style( 
-        'hasooleilm-main', 
-        get_template_directory_uri() . '/assets/css/main.css', 
-        array(), 
-        '1.0.0' 
-    );
-    
-    // Header CSS (depends on main.css for CSS variables)
-    wp_enqueue_style( 
-        'hasooleilm-header', 
-        get_template_directory_uri() . '/assets/css/header.css', 
-        array('hasooleilm-main'), 
-        '1.0.0' 
-    );
 
-    // Footer CSS (depends on main.css for CSS variables)
-    wp_enqueue_style( 
-        'hasooleilm-footer', 
-        get_template_directory_uri() . '/assets/css/footer.css', 
-        array('hasooleilm-main'), 
-        '1.0.0' 
-    );
-    
-    // Templates CSS (for specific page templates like Terms, Privacy, etc.)
-    wp_enqueue_style( 
-        'hasooleilm-templates', 
-        get_template_directory_uri() . '/assets/css/templates.css', 
-        array('hasooleilm-main'), 
-        '1.0.0' 
-    );
-
-    // Front Page CSS (for the front page template)
-    wp_enqueue_style( 
-        'hasooleilm-front-page', 
-        get_template_directory_uri() . '/assets/css/front-page.css', 
-        array('hasooleilm-main'), 
-        '1.0.0' 
-    );
-
-    // Main JavaScript
     wp_enqueue_script( 
         'hasooleilm-main-js', 
         get_template_directory_uri() . '/assets/js/main.js', 
@@ -133,8 +84,7 @@ function hasooleilm_enqueue_scripts() {
         '1.0.0', 
         true 
     );
-    
-    // Header JavaScript (mobile menu + scroll effects)
+
     wp_enqueue_script( 
         'hasooleilm-header-js', 
         get_template_directory_uri() . '/assets/js/header.js', 
@@ -142,8 +92,7 @@ function hasooleilm_enqueue_scripts() {
         '1.0.0', 
         true 
     );
-    
-    // Comment reply script (only on singular pages with comments)
+
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
